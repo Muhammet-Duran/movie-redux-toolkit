@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Nav.module.css";
 const Nav = () => {
@@ -9,17 +9,17 @@ const Nav = () => {
   };
   return (
     <nav className={styles.nav}>
-        {!isHome ? (
+      {!isHome ? (
         <Link onClick={handleMenu} className={styles.nav_link} to="/">
           STAY HOME
         </Link>
       ) : (
-        <Link onClick={handleMenu} className={styles.nav_link} to="/favorite">
+        <Link onClick={handleMenu} className={styles.nav_link} to="/favorites">
           MY FAVORİTES
         </Link>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

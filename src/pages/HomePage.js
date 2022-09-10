@@ -1,9 +1,13 @@
-import React from 'react'
+import Filters from "components/Filters/Filters";
+import Movies from "components/Movies/Movies";
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <Filters />
+      <Movies />
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;

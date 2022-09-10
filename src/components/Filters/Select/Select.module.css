@@ -1,0 +1,12 @@
+.select {
+  height: 46px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #eaeaea;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  margin-right: 8px;
+}

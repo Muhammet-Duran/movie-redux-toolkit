@@ -1,9 +1,11 @@
-import React from 'react'
-
-const Moviecard = () => {
+import styles from "./MovieCard.module.css";
+import movieImg from "./../../assets/movie.jpeg";
+const MovieCard = () => {
   return (
-    <div>Moviecard</div>
-  )
-}
+    <div className={styles.movie_card}>
+      <img src={movieImg} alt="movie" />
+    </div>
+  );
+};
 
-export default Moviecard
+export default MovieCard;

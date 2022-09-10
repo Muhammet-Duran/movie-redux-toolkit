@@ -1,0 +1,7 @@
+.movie_card {
+  margin: 15px 10px;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
