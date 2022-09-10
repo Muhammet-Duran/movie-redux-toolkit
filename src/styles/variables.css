@@ -1,0 +1,25 @@
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic");
+
+
+:root{
+    
+    --poppins:'Montserrat', sans-serif;
+    --headerHeight:84px;
+    --footerHeight:60px;
+
+    /*Colors*/
+    --white:#FFFFFF;
+    --color: #33c863;
+    --greyColor: darkslategrey;
+    --headerColor: #16213E;
+
+    /*spaces*/
+    --space-3:12px;
+    --space-4:16px;
+    --space-5:20px;
+
+
+
+
+}

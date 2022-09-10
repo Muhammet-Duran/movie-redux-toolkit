@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import {Footer,Header,Main} from "./components/Index"
+
+
+import { useGetMoviesQuery, useGetTvEpisodesQuery, useGetReleaseYearQuery} from './features/movieApi';
+// import Router from './Router';
 
 function App() {
+  const { data:movies, error, isLoading, isFetching } = useGetMoviesQuery();
+  console.log(movies,"popular")
+  // const { data : discover} = useGetTvEpisodesQuery();
+  // console.log(discover,"discover")
+  // const { data : releaseYear} = useGetReleaseYearQuery();
+  // console.log(releaseYear,"tarih")
+
+  if (isFetching) return "Loading...";
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
