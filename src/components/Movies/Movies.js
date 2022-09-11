@@ -2,18 +2,13 @@
 import MovieCard from "components/MovieCard/MovieCard";
 import styles from "./Movies.module.css";
 
-const Movies = () => {
+const Movies = ({ movies }) => {
   return (
     <div className={styles.movie_list}>
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+      {movies?.results &&
+        movies?.results.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
     </div>
   );
 };

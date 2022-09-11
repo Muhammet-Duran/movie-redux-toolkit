@@ -1,7 +1,97 @@
 .movie_card {
   margin: 15px 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background-color: #333;
+  box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease-in-out;
+}
+.card_detail {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.85),
+    rgba(10, 10, 10, 0.5)
+  );
+  transition: opacity 0.1 ease;
+}
+.movie_card:hover {
+  transform: scale(1.05);
+}
+
+.movie_card:hover .card_detail {
+  opacity: 1;
+}
+.content {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+}
+.content_top {
+  align-self: center;
+  margin-bottom: 10px;
+}
+.content_bottom {
+  justify-content: space-evenly;
+}
+.movie__info__svg {
+  fill: #fff;
+}
+.movie__info__svg.active {
+  fill: crimson;
 }
 img {
   display: block;
   max-width: 100%;
+}
+
+.movie_rating {
+  font-size: 14px;
+  color: var(--color);
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 6px 8px;
+  position: relative;
+  display: flex;
+}
+.movie_rating > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.round {
+  transform: rotate(-90deg);
+  transition: all 1s ease-in-out;
+  /* SVG */
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.round.green {
+  stroke: green;
+}
+.round.orange {
+  stroke: orange;
+}
+.round.red {
+  stroke: red;
+}
+.round.transparent {
+  stroke: transparent;
 }

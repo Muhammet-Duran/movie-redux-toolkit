@@ -1,13 +1,14 @@
 import styles from "./Input.module.css";
 
-const Input = ({ onChange, placeholder }) => {
+const Input = ({ onChange, placeholder, value, onSubmit }) => {
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <input
         className={styles.input}
         placeholder={placeholder}
         onChange={onChange}
-      ></input>
+        value={value}
+      />
     </form>
   );
 };
