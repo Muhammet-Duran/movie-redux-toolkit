@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { movieQuery } from "features/cardSlice";
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
     const search = e.target.value;
@@ -13,7 +14,7 @@ const Search = () => {
       dispatch(movieQuery(searchTerm));
     }
   };
-  const dispatch = useDispatch();
+
   // const queryHandler = (e) => {
   //   e.preventDefault();
   //   dispatch(movieQuery(searchTerm));

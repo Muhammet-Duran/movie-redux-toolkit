@@ -11,7 +11,7 @@ const Nav = () => {
     <nav className={styles.nav}>
       {!isHome ? (
         <Link onClick={handleMenu} className={styles.nav_link} to="/">
-          STAY HOME
+          HOME
         </Link>
       ) : (
         <Link onClick={handleMenu} className={styles.nav_link} to="/favorites">

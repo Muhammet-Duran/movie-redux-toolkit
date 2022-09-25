@@ -1,10 +1,17 @@
 import styles from "./MovieCard.module.css";
 import LikeIconSvg from "./../../assets/LikeIconSvg.js";
 import Button from "UI/Button/Button";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { addToFavorite } from "features/cardSlice";
+import { useDispatch, useSelector } from "react-redux";
 const MovieCard = ({ movie }) => {
   const [likeMovie, setLikeMovie] = useState(false);
+  const { favoriteMovies } = useSelector((state) => state.cardSlice);
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (popular) => {
+    dispatch(addToFavorite(popular));
+  };
 
   const IMG_API = "https://image.tmdb.org/t/p/original";
   const setRating = (rating) => {
@@ -16,6 +23,13 @@ const MovieCard = ({ movie }) => {
       return `${styles.red}`;
     }
   };
+  useEffect(() => {
+    if (favoriteMovies.find((favorite) => favorite.id === movie.id)) {
+      setLikeMovie(true);
+    } else {
+      setLikeMovie(false);
+    }
+  }, [favoriteMovies.length]);
 
   return (
     <div className={styles.movie_card}>
@@ -54,7 +68,7 @@ const MovieCard = ({ movie }) => {
           )}
           <Button
             className={styles.add_btn}
-            // onClick={() => onClickHandler(movie)}
+            onClick={() => handleAddToCart(movie)}
           >
             <LikeIconSvg
               isActive={likeMovie}

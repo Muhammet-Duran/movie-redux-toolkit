@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 import Filters from "components/Filters/Filters";
 import Movies from "components/Movies/Movies";
 import {
@@ -11,13 +12,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { movieQuery } from "features/cardSlice";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
   const { data: popular, error, isLoading } = useGetMoviesQuery();
-  // const { data: movieSearch } = useGetSearchQuery(movieQuery);
-  // const { query } = useSelector((state) => state.cardSlice);
+  const { data: movieSearch } = useGetSearchQuery(movieQuery);
+  const { query } = useSelector((state) => state.cardSlice);
+  console.log(query);
   // console.log(query, "onSubmit");
   // console.log(movieSearch, "arama");
 
-  // const [movies, setMovies] = useState(popular);
+  // const [movies, setMovies] = useState([]);
 
   return (
     <>
@@ -28,7 +31,7 @@ const HomePage = () => {
         <p>An error occured</p>
       ) : (
         <>
-          <Movies movies={popular} />
+          <Movies movies={movieSearch?.results} />
         </>
       )}
     </>
