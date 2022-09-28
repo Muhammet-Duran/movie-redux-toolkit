@@ -2,15 +2,20 @@ import styles from "./MovieCard.module.css";
 import LikeIconSvg from "./../../assets/LikeIconSvg.js";
 import Button from "UI/Button/Button";
 import { useState, useEffect } from "react";
-import { addToFavorite } from "features/cardSlice";
+import { addToFavorite, getMovieDetail } from "features/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
   const [likeMovie, setLikeMovie] = useState(false);
   const { favoriteMovies } = useSelector((state) => state.cardSlice);
 
   const dispatch = useDispatch();
   const handleAddToCart = (popular) => {
     dispatch(addToFavorite(popular));
+  };
+  const movieToDetail = (movie) => {
+    dispatch(getMovieDetail(movie));
   };
 
   const IMG_API = "https://image.tmdb.org/t/p/original";
@@ -67,9 +72,13 @@ const MovieCard = ({ movie }) => {
             </div>
           )}
           <Button
-            className={styles.add_btn}
-            onClick={() => handleAddToCart(movie)}
+            preferences="detail_btn"
+            // to={`/${movie.id}`}
+            onClick={() => movieToDetail(movie, navigate(`/${movie.id}`))}
           >
+            detay
+          </Button>
+          <Button preferences="add_btn" onClick={() => handleAddToCart(movie)}>
             <LikeIconSvg
               isActive={likeMovie}
               svg={styles.movie__info__svg}

@@ -1,11 +1,19 @@
 .movie_btn {
   background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  padding: 6px 8px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 0;
   transition: all 0.3s ease;
+}
+.add_btn {
   letter-spacing: 1px;
   font-size: 14px;
   font-weight: 700;
-  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+}
+.detail_btn {
+  color: orange;
 }

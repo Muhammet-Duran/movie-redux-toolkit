@@ -1,0 +1,9 @@
+.detail_wrapper {
+  display: flex;
+  color: white;
+}
+
+.info_title,
+.info_text {
+  color: white;
+}

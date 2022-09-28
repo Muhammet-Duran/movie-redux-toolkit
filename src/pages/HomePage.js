@@ -9,31 +9,51 @@ import {
   useGetSearchQuery,
 } from "features/movieApi";
 import { useDispatch, useSelector } from "react-redux";
-import { movieQuery } from "features/cardSlice";
+import Main from "components/Main/Main";
+// import { movieQuery } from "features/cardSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { data: popular, error, isLoading } = useGetMoviesQuery();
-  const { data: movieSearch } = useGetSearchQuery(movieQuery);
   const { query } = useSelector((state) => state.cardSlice);
-  console.log(query);
-  // console.log(query, "onSubmit");
-  // console.log(movieSearch, "arama");
+  // const [movieSearch, setMovieSearch] = useState(query);
 
-  // const [movies, setMovies] = useState([]);
+  const { data, error, isLoading } = useGetMoviesQuery();
+  const { data: movieSearchData, isFetching } = useGetSearchQuery(query);
+  // const { data: moviesEpisodes } = useGetTvEpisodesQuery();
+  console.log(movieSearchData, "src");
+  // console.log(data, "datasss");
+
+  // console.log(query);
+  // useEffect(() => {
+  //   m
+  // }, [query]);
+  // // console.log(query, "onSubmit");
+  // // console.log(movieSearch, "arama");
 
   return (
     <>
       <Filters />
-      {isLoading ? (
+      <Main
+        error={error}
+        isLoading={isLoading}
+        data={movieSearchData || data}
+        isFetching={isFetching}
+      />
+      {/* {isLoading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>An error occured</p>
       ) : (
         <>
-          <Movies movies={movieSearch?.results} />
+          <Movies
+            movies={
+              movieSearchData?.results?.length > 0
+                ? movieSearchData?.results
+                : data?.results
+            }
+          />
         </>
-      )}
+      )} */}
     </>
   );
 };

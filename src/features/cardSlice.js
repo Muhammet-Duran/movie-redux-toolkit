@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   favoriteMovies: [],
   query: "",
+  movieDetail: {},
 };
 
 const cardSlice = createSlice({
@@ -23,8 +24,11 @@ const cardSlice = createSlice({
         state.favoriteMovies.push(newList);
       }
     },
+    getMovieDetail: (state, action) => {
+      state.movieDetail = action.payload;
+    },
   },
 });
-export const { movieQuery, addToFavorite } = cardSlice.actions;
+export const { movieQuery, addToFavorite, getMovieDetail } = cardSlice.actions;
 
 export default cardSlice.reducer;
