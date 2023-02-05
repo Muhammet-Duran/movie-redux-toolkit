@@ -1,4 +1,79 @@
 .search_area {
   min-width: 420px;
   max-width: 420px;
+  position: relative;
+}
+.search_result{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 9999;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.res_item:not(:last-child){
+  border-bottom: 1px solid #0000001F;
+
+}
+.movie_link{
+  padding: 4px 12px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  transition: all .3s linear;
+  cursor: pointer;
+}
+.movie_link:hover{
+  background-color: #e7eff2;
+}
+
+.spinner_gif {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 14px;
+  transform: translate(0%, -50%) rotate(0deg);
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #9e9e9e6e;
+  border-bottom-color: #33c863;
+  z-index: 99999;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: gifSpinner 1s linear infinite;
+}
+@keyframes gifSpinner {
+  0% {
+    transform: translate(0%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0%, -50%) rotate(360deg);
+  }
+}
+.movie_title{
+  margin-right: 4px;
+  margin-left: 10px;
+}
+.movie_title,.release_date{
+font-size: 15px;
+color: #000;
+
+}
+.img_area{
+  width: 30px;
+  
+  
+
+}
+.img_area >img{
+  display: block;
+  max-width: 100%;
+  object-fit:cover;
 }

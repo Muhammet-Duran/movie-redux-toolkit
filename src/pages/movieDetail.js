@@ -1,15 +1,18 @@
+import { useGetDetailQuery } from "features/movieApi";
 import MovieInfo from "MovieInfo/MovieInfo";
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import Button from "UI/Button/Button";
 
 const MovieDetail = () => {
-  const { movieDetail } = useSelector((state) => state.cardSlice);
+  let { id } = useParams();
+  const { data: movieDetail, isFetching } = useGetDetailQuery(id);
+  // console.log(movieDetail,"info")
+  // console.log(  "nehaber")
 
   return (
-    <>
-      <MovieInfo movie={movieDetail} />
-      <Button to="/"></Button>
-    </>
+    <div className="container">
+      <MovieInfo movie={movieDetail} isFetching={isFetching} />
+    </div>
   );
 };
 

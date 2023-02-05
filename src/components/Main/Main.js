@@ -1,23 +1,21 @@
 import Movies from "components/Movies/Movies";
-import React from "react";
+import loadingGif from "./../../assets/Loading.gif";
+import styles from "./Main.module.css";
 
-const Main = ({ isLoading, isFetching, error, data, movieSearchData }) => {
-  console.log(movieSearchData);
+const Main = ({ isLoading, error, data }) => {
   return (
     <>
-      {isLoading || isFetching ? (
-        <p>Loading...</p>
+      {isLoading ? (
+        <div className={styles.wraper}>
+          <img src={loadingGif} width="60px" alt="loading" />
+        </div>
       ) : error ? (
-        <p>An error occured</p>
+        <div className={styles.wraper}>
+          <p>An error occured</p>
+        </div>
       ) : (
         <>
-          <Movies
-            movies={
-              movieSearchData?.results?.length > 0
-                ? movieSearchData?.results
-                : data?.results
-            }
-          />
+          <Movies movies={data?.results} />
         </>
       )}
     </>

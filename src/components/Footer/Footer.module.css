@@ -1,0 +1,19 @@
+.footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+.footer_inner {
+  text-align: center;
+  color: var(--white);
+}
+.footer_inner > a {
+  color: var(--white);
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.footer_inner > a:hover {
+  text-decoration: underline;
+  color: var(--colorGreen);
+}

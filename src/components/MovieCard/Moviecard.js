@@ -74,9 +74,9 @@ const MovieCard = ({ movie }) => {
           <Button
             preferences="detail_btn"
             // to={`/${movie.id}`}
-            onClick={() => movieToDetail(movie, navigate(`/${movie.id}`))}
+            onClick={() => movieToDetail(navigate(`/${movie.id}`))}
           >
-            detay
+            Detail
           </Button>
           <Button preferences="add_btn" onClick={() => handleAddToCart(movie)}>
             <LikeIconSvg

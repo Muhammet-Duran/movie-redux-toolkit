@@ -7,11 +7,11 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={cn("container", styles.header_container)}>
-        <Logo/>
-        <Nav/>
+        <Logo />
+        <Nav />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Header;

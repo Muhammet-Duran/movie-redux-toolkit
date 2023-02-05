@@ -1,3 +1,29 @@
 .years {
   display: inline-block;
+  position: relative;
+}
+.spinner_gif {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 14px;
+  transform: translate(0%, -50%) rotate(0deg);
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #9e9e9e6e;
+  border-bottom-color: #33c863;
+  z-index: 99999;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: gifSpinner 1s linear infinite;
+}
+@keyframes gifSpinner {
+  0% {
+    transform: translate(0%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0%, -50%) rotate(360deg);
+  }
 }

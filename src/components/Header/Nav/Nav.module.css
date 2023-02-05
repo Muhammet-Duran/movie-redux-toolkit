@@ -18,3 +18,24 @@
 .nav_link:hover {
   color: var(--colorGreen);
 }
+.page_link {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.count {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: -14px;
+  top: -4px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  background-color: var(--headerColor);
+  color: var(--colorGreen);
+
+  font-size: 12px;
+  font-weight: 600;
+}

@@ -1,6 +1,5 @@
-// import MovieCard from "components/MovieCard/MovieCard";
 import Movies from "components/Movies/Movies";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Favorites = () => {
   const { favoriteMovies } = useSelector((state) => state.cardSlice);
