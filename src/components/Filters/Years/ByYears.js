@@ -6,6 +6,7 @@ import { selectYears } from "features/cardSlice";
 
 const ByYears = () => {
   const [searchTerm] = useState("");
+  const { year, skip } = useSelector((state) => state.cardSlice);
 
   const dispatch = useDispatch();
 
@@ -16,9 +17,6 @@ const ByYears = () => {
     }
   };
 
-  // const findMovie = () => {
-  //   dispatch(selectYears("hello"));
-  // };
   useEffect(() => {
     if (searchTerm.length === 4) {
       setSpinnerLoading(true);
@@ -45,6 +43,7 @@ const ByYears = () => {
           maxLength="4"
           // pattern="\d{4}"
           required
+          value={year}
         />
       </div>
     </div>

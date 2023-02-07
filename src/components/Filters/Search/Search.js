@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import Input from "UI/Input/Input";
 import styles from "./Search.module.css";
+import { useDispatch } from "react-redux";
 import { useGetSearchQuery } from "features/movieApi";
+import { selectCategory } from "features/cardSlice";
 const Search = () => {
+  const dispatch = useDispatch();
   const IMG_API = "https://image.tmdb.org/t/p/original";
   const [skip, setSkip] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,13 +44,18 @@ const Search = () => {
         value={searchTerm}
         placeholder="search for a movie"
         onChange={handleMoviesSearch}
-        // onSubmit={(e) => queryHandler(e)}
       />
       <ul className={styles.search_result}>
         {searchedForMovie &&
           searchResult?.results.map((movie) => (
             <li className={styles.res_item}>
-              <a href={`/${movie.id}`} className={styles.movie_link}>
+              <a
+                href={`/${movie.id}`}
+                onClick={() =>
+                  dispatch(selectCategory({ category: "popular", skip: true }))
+                }
+                className={styles.movie_link}
+              >
                 <div className={styles.img_area}>
                   <img
                     src={

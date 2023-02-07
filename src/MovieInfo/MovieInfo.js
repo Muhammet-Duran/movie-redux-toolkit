@@ -1,11 +1,8 @@
-import MovieDetail from "pages/movieDetail";
+
 import styles from "./MovieInfo.module.css";
 import moment from "moment";
 
 const MovieInfo = ({ movie, isFetching }) => {
-  console.log(movie);
-  // console.log(movie.original_title, "sas");
-  // console.log(movie.id, "sas");
 
   const IMG_API = "https://image.tmdb.org/t/p/original";
   return (

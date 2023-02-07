@@ -5,11 +5,11 @@ const initialState = {
   query: "",
   category: "popular",
   skip: true,
-  year: null,
+  year: "",
   movieDetail: {},
   favoriMovieLength: 0,
 };
-console.log(initialState);
+
 const cardSlice = createSlice({
   name: "cart",
   initialState,
@@ -24,10 +24,6 @@ const cardSlice = createSlice({
       state.year = action.payload.year;
       state.skip = action.payload.skip;
     },
-    // favoriteMovieLength: (state, action) => {
-    //   state.favoriMovieLength =
-    //     state.favoriteMovies && state.favoriteMovies.length;
-    // },
     addToFavorite: (state, action) => {
       if (state.favoriteMovies.find((item) => item.id === action.payload.id)) {
         const newList = state.favoriteMovies.filter(

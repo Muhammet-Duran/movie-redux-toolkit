@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-
+import { useEffect} from "react";
 import Filters from "components/Filters/Filters";
-import Movies from "components/Movies/Movies";
 import {
   useGetMoviesQuery,
   useGetTvEpisodesQuery,
@@ -10,20 +8,16 @@ import {
 import { useDebounce } from "use-debounce";
 import { useDispatch, useSelector } from "react-redux";
 import Main from "components/Main/Main";
-// import { movieQuery } from "features/cardSlice";
+import { selectCategory } from "features/cardSlice";
 
 const HomePage = () => {
-  // const dispatch = useDispatch();
-  // const { query } = useSelector((state) => state.cardSlice);
-  // const [movieSearch, setMovieSearch] = useState(query);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(selectCategory({ category: "popular", skip: true }));
+  }, []);
 
-  // const { data:popularMovies, error, isLoading } = useGetMoviesQuery();
-  const { year, skip } = useSelector((state) => state.cardSlice);
-  const { category } = useSelector((state) => state.cardSlice);
-  // const [skip, setSkip] = useState(true);
-  console.log(category, "seçilen kategori");
-
-  const [debouncedSearchQuery] = useDebounce(year, 500);
+  const { category, year, skip } = useSelector((state) => state.cardSlice);
+   const [debouncedSearchQuery] = useDebounce(year, 500);
 
   const {
     data: popularMovies,
@@ -54,42 +48,15 @@ const HomePage = () => {
     filmData = byYearsMovies;
     fetching = byYearsFetching;
     error = byYearsError;
-  }
-  if (category === "episode") {
+  } else if (category === "episode") {
     filmData = episodesMovies;
     fetching = episodesFetching;
     error = episodesError;
+ 
   }
-
-  // console.log(
-  //   "byYearsMovies-->",
-  //   byYearsMovies,
-  //   "error-->",
-  //   byYearsError,
-  //   "isFetching-->",
-  //   byYearsFetching,
-  //   "isLoading-->",
-  //   byYearsLoading,
-  //   "isSuccess-->",
-  //   byYearsSuccess,
-  //   filmData
-  // );
-  console.log(
-    "byYearsMovies-->",
-    episodesMovies,
-    "error-->",
-    episodesError,
-    "isFetching-->",
-    episodesFetching,
-    "isLoading-->",
-    episodesLoading,
-    // "isSuccess-->",
-    // episodesSuccess,
-    filmData
-  );
   return (
     <>
-      <Filters />
+      <Filters />   
       {/* {year?.length === 4 && (
         <Main
           error={popularError}
