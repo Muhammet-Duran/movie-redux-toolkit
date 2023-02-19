@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import styles from "./Nav.module.css";
-const Nav = ({ isHome, handleMenu  }) => {
+const Nav = ({ isHome, handleMenu }) => {
   const { favoriMovieLength } = useSelector((state) => state.cardSlice);
+  console.log(favoriMovieLength, "length");
+
   return (
     <nav className={styles.nav}>
       {!isHome ? (
