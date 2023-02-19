@@ -14,9 +14,7 @@ const Main = ({ isLoading, error, data }) => {
           <p>An error occured</p>
         </div>
       ) : (
-        <>
-          <Movies movies={data?.results} />
-        </>
+        <Movies movies={data?.results} />
       )}
     </>
   );
