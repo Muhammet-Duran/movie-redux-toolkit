@@ -1,11 +1,10 @@
 import styles from "./MovieCard.module.css";
-import LikeIconSvg from "./../../assets/LikeIconSvg.js";
+import LikeIconSvg from "../../assets/LikeIconSvg.js";
 import Button from "UI/Button/Button";
 import { useState, useEffect } from "react";
 import { addToFavorite, getMovieDetail } from "features/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
   const [likeMovie, setLikeMovie] = useState(false);
@@ -39,23 +38,14 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className={styles.movie_card}>
-      <motion.div
-        layout
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        key={movie.id}
-      >
-        <img
-          src={
-            movie.poster_path
-              ? IMG_API + movie.poster_path
-              : "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
-          }
-          alt={movie.original_title}
-        />
-      </motion.div>
+      <img
+        src={
+          movie.poster_path
+            ? IMG_API + movie.poster_path
+            : "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
+        }
+        alt={movie.original_title}
+      />
 
       <div className={styles.card_detail}>
         <div className={`${styles.content} ${styles.content_top}`}>
