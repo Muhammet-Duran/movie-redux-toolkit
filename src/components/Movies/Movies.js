@@ -1,4 +1,5 @@
-import MovieCard from "./../MovieCard/MovieCard";
+// import MovieCard from "components/MovieCard/";
+import MovieCard from "components/MovieCard/MovieCard";
 import styles from "./Movies.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 
