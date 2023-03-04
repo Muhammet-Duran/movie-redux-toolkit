@@ -18,7 +18,7 @@ const MovieCard = ({ movie }) => {
     dispatch(getMovieDetail(movie));
   };
 
-  const IMG_API = "https://image.tmdb.org/t/p/original";
+  const IMG_API = "https://image.tmdb.org/t/p/w500";
   const setRating = (rating) => {
     if (rating >= 8) {
       return `${styles.green}`;
@@ -49,10 +49,10 @@ const MovieCard = ({ movie }) => {
 
       <div className={styles.card_detail}>
         <div className={`${styles.content} ${styles.content_top}`}>
-          <span className={styles.movie_title}>{movie.title}</span>
-          <span className={styles.movie_releas_date}>
+          <div className={styles.movie_title}>{movie.title}</div>
+          <div className={styles.movie_releas_date}>
             {movie?.release_date?.slice(0, 4)}
-          </span>
+          </div>
         </div>
         <div className={`${styles.content} ${styles.content_bottom}`}>
           {movie?.vote_average !== 0 && (

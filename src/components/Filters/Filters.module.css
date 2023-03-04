@@ -3,3 +3,19 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 991px) {
+  .filters_area {
+    flex-direction: column;
+    max-width: 624px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 0 auto;
+  }
+  .right_area {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

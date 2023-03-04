@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import Filters from "components/Filters/Filters";
 import {
   useGetMoviesQuery,
@@ -17,7 +17,7 @@ const HomePage = () => {
   }, []);
 
   const { category, year, skip } = useSelector((state) => state.cardSlice);
-   const [debouncedSearchQuery] = useDebounce(year, 500);
+  const [debouncedSearchQuery] = useDebounce(year, 500);
 
   const {
     data: popularMovies,
@@ -52,25 +52,10 @@ const HomePage = () => {
     filmData = episodesMovies;
     fetching = episodesFetching;
     error = episodesError;
- 
   }
   return (
     <>
-      <Filters />   
-      {/* {year?.length === 4 && (
-        <Main
-          error={popularError}
-          isLoading={byYearsLoading}
-          data={byYearsMovies}
-        />
-      )}
-      {popularSuccess && (
-        <Main
-          error={popularError}
-          isLoading={popularLoading}
-          data={popularMovies}
-        />
-      )} */}
+      <Filters />
       <Main error={error} isLoading={fetching} data={filmData} />
     </>
   );

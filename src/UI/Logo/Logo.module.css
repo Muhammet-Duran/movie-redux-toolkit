@@ -25,3 +25,12 @@
 .logo_area:hover .logo_text {
   /* color: var(--colorGreen); */
 }
+
+@media screen and (max-width: 991px) {
+  .logo_area {
+    border: 0;
+  }
+  .logo_text {
+    display: none;
+  }
+}
