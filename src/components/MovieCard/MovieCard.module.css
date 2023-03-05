@@ -27,9 +27,6 @@
   );
   transition: opacity 0.1 ease;
 }
-.movie_card:hover {
-  transform: scale(1.05);
-}
 
 .content {
   display: flex;
@@ -92,19 +89,23 @@ img {
 .round.transparent {
   stroke: transparent;
 }
-
+.movie_title {
+  margin-right: 4px;
+}
 @media only screen and (min-width: 992px) {
   .movie_card:hover .card_detail {
     opacity: 1;
   }
-}
-@media screen and (max-width: 991px) {
-  .card_detail {
-    opacity: 1;
+  .movie_card:hover {
+    transform: scale(1.05);
   }
 }
 
 @media screen and (max-width: 991px) {
+  .card_detail {
+    opacity: 1;
+    background: none;
+  }
   .content_top {
     display: flex;
     flex-direction: column;

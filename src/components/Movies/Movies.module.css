@@ -8,6 +8,7 @@
 @media screen and (max-width: 991px) {
   .movie_list {
     grid-template-columns: repeat(3, 1fr);
+    padding-top: 20px;
   }
 }
 

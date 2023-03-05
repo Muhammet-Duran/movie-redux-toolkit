@@ -36,7 +36,6 @@
   margin-bottom: 12px;
 }
 .info_title {
-  /* padding-top: var(--space-2); */
   padding-bottom: var(--space-2);
   color: #4cc9f0;
   font-weight: 500;
@@ -44,4 +43,28 @@
 .info_text {
   color: var(--white);
   font-weight: 400;
+}
+
+@media screen and (max-width: 991px) {
+  .detail_wrapper {
+    flex-direction: column;
+  }
+  .title {
+    font-size: 30px;
+    text-align: center;
+  }
+  .movie_detail {
+    margin: 0;
+  }
+  .overwiew {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .info_title {
+    font-size: 14px;
+  }
+  .info_text {
+    font-size: 13px;
+  }
 }

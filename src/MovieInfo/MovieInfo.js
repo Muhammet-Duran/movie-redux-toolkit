@@ -1,9 +1,7 @@
-
 import styles from "./MovieInfo.module.css";
 import moment from "moment";
 
 const MovieInfo = ({ movie, isFetching }) => {
-
   const IMG_API = "https://image.tmdb.org/t/p/original";
   return (
     <div className={styles.detail_wrapper}>
@@ -69,7 +67,7 @@ const MovieInfo = ({ movie, isFetching }) => {
                 <h4 className={styles.info_title}>Genres</h4>
                 <div className={styles.info_genres}>
                   {movie?.genres.map((genre) => (
-                    <span className={styles.genre}>{genre.name}</span>
+                    <span className={styles.info_text}>{genre.name}</span>
                   ))}
                 </div>
               </div>
