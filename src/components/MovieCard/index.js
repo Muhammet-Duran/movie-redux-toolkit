@@ -1,10 +1,11 @@
-import styles from "./MovieCard.module.css";
+import { useState, useEffect } from "react";
 import LikeIconSvg from "../../assets/LikeIconSvg.js";
 import Button from "UI/Button/Button";
-import { useState, useEffect } from "react";
 import { addToFavorite, getMovieDetail } from "features/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import styles from "./MovieCard.module.css";
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
   const [likeMovie, setLikeMovie] = useState(false);
@@ -18,7 +19,7 @@ const MovieCard = ({ movie }) => {
     dispatch(getMovieDetail(movie));
   };
 
-  const IMG_API = "https://image.tmdb.org/t/p/w500";
+  const IMG_API = "https://image.tmdb.org/t/p/original";
   const setRating = (rating) => {
     if (rating >= 8) {
       return `${styles.green}`;
@@ -38,14 +39,41 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className={styles.movie_card}>
-      <img
+      {/* <LazyLoadImage
+        effect="blur"
+        // effect="blur"
+        width={300}
+        height={450}
+        placeholderSrc
+        wrapperClassName={styles.l_img}
         src={
           movie.poster_path
             ? IMG_API + movie.poster_path
             : "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
         }
         alt={movie.original_title}
-      />
+      /> */}
+      {movie.poster_path !== "N/A" ? (
+        <LazyLoadImage
+          effect="blur"
+          width={300}
+          height={450}
+          placeholderSrc
+          wrapperClassName={styles.l_img}
+          src={IMG_API + movie.poster_path}
+          alt={movie.Title}
+        />
+      ) : (
+        <LazyLoadImage
+          effect="blur"
+          width={300}
+          height={450}
+          wrapperClassName={styles.l_img}
+          placeholderSrc
+          src="https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
+          alt={movie.Title}
+        />
+      )}
 
       <div className={styles.card_detail}>
         <div className={`${styles.content} ${styles.content_top}`}>

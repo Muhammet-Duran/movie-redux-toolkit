@@ -5,7 +5,10 @@
   position: relative;
   background-color: #333;
   box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  height: 450px;
   transition: transform 0.25s ease-in-out;
+
 }
 .card_detail {
   opacity: 0;
@@ -50,7 +53,17 @@
 }
 img {
   display: block;
-  max-width: 100%;
+  max-width: 300px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.l_img{
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .movie_rating {
