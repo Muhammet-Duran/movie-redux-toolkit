@@ -7,7 +7,7 @@ const Main = ({ isLoading, error, data }) => {
     <>
       {isLoading ? (
         <div className={styles.wraper}>
-          <img src={loadingGif} width="60px" alt="loading" />
+          <img src={loadingGif} style={{width:"60px",height:"60px"}} alt="loading"  />
         </div>
       ) : error ? (
         <div className={styles.wraper}>

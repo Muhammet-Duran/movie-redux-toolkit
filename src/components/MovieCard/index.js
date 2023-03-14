@@ -4,6 +4,7 @@ import Button from "UI/Button/Button";
 import { addToFavorite, getMovieDetail } from "features/cardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./MovieCard.module.css";
 const MovieCard = ({ movie }) => {
@@ -36,23 +37,17 @@ const MovieCard = ({ movie }) => {
       setLikeMovie(false);
     }
   }, [favoriteMovies.length]);
-
+const variants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 200 },
+};
   return (
-    <div className={styles.movie_card}>
-      {/* <LazyLoadImage
-        effect="blur"
-        // effect="blur"
-        width={300}
-        height={450}
-        placeholderSrc
-        wrapperClassName={styles.l_img}
-        src={
-          movie.poster_path
-            ? IMG_API + movie.poster_path
-            : "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
-        }
-        alt={movie.original_title}
-      /> */}
+    <motion.div
+      initial="hidden"
+      animate="visible"
+       variants={variants}
+      className={styles.movie_card}
+    >
       {movie.poster_path !== "N/A" ? (
         <LazyLoadImage
           effect="blur"
@@ -117,7 +112,7 @@ const MovieCard = ({ movie }) => {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

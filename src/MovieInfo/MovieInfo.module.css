@@ -4,14 +4,19 @@
   color: var(--white);
 }
 .img_area {
-  max-width: 300px;
+  width: 300px;
   margin: 10px var(--space-5);
   border-radius: 12px;
   overflow: hidden;
 }
+img{
+  width: 100%;
+  max-width: initial;
+}
 
 .movie_detail {
   margin: 10px var(--space-5);
+  flex: 1;
 }
 
 .title {
